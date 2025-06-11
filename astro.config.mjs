@@ -2,7 +2,7 @@
 
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import vercel from '@astrojs/vercel'
-import AstroPureIntegration from 'astro-pure'
+import AstroPureIntegration from 'astro-pure' 
 import { defineConfig } from 'astro/config'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
@@ -76,6 +76,9 @@ export default defineConfig({
   server: {
     host: true
   },
+  devToolbar: {
+    enabled: false
+  },
   // Markdown Options
   markdown: {
     remarkPlugins: [remarkMath],
@@ -108,7 +111,6 @@ export default defineConfig({
     }
   },
   experimental: {
-    svg: true,
     contentIntellisense: true
   },
   vite: {

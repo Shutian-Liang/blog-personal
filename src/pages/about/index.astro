@@ -6,120 +6,148 @@ import Substats from '@/components/about/Substats.astro'
 import ToolSection from '@/components/about/ToolSection.astro'
 
 const headings = [
-  { depth: 2, slug: 'hobbies', text: 'Hobbies' },
-  { depth: 2, slug: 'tools', text: 'Tools' },
-  { depth: 2, slug: 'social-networks', text: 'Social Networks' },
-  { depth: 2, slug: 'gossips', text: 'Gossips' },
-  { depth: 2, slug: 'about-blog', text: 'About Blog' }
+  { depth: 2, slug: 'about', text: 'Shutian Liang' },
+  { depth: 2, slug: 'awards', text: 'Awards' },
+  { depth: 2, slug: 'tools', text: 'Skills & Tools' },
+  { depth: 2, slug: 'hobbies', text: 'Hobbies' }
 ]
 ---
 
 <PageLayout title='About' {headings} info='/about'>
-  <p>Hi there</p>
-  <p>
-    Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
-    dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel, at eum oratio
-    possit voluptatum.
-  </p>
-  <p>My motto: Stay hungry, Stay foolish. <Spoiler>这里可以夹私货</Spoiler></p>
-  <Button title='Sponsor Me' class='w-fit' href='/projects#sponsorship' style='ahead' />
+  <div class="flex gap-8 items-center">
+    <img src="/src/assets/about.png" alt="Shutian Liang" class="w-60 rounded-lg shadow-md" />
+    <div>
+      <p>Hi there! 👋I'm Shutian Liang, a graduate from <a href="https://www.psy.pku.edu.cn/english/" target="_blank">SPCS</a>, <a href="https://www.pku.edu.cn/" target="_blank">Peking University</a> 
+      with a bachelor degree in Psychology at 2024.</p>
+      <p>
+        After graduation, I work as a full time research assistant at <a href="https://www.ai.pku.edu.cn/en/" target="_blank"></a>Institute for Artificial Intelligence <a href="https://www.pku.edu.cn/" target="_blank">Peking University</a> focusing on 
+        brain-inspired AI and generative models theory under the supervision of <a href="https://www.ai.pku.edu.cn/en/info/1459/2032.htm" target="_blank">Prof. Si Wu</a>. When I was an undergraduate student, 
+        I did my undergraduate research on <strong>cognitive behavior modeling</strong> under the supervision of <a href="https://www.psy.pku.edu.cn/english/people/faculty/professor/hangzhang/index.htm" target="_blank">Prof. Hang Zhang</a>.
+      </p>
+      <p>
+        I'm passionate about building novel generative models and understanding their mechanisms through the lens of geometry and physics. Though my formal training is in psychology, I am actively expanding my computer science and mathematics expertise to contribute to this exciting field. 
+      </p>
+      <p><strong>My motto: What I cannot create, I do not understand.</strong></p>
+    </div>
+  </div>
+  <!-- <Button title='Sponsor Me' class='w-fit' href='/projects#sponsorship' style='ahead' /> -->
 
-  {/* general-talk */}
-  <h2 id='hobbies'>Hobbies</h2>
-  <ul>
-    <li>Lorem ipsum dolor sit amet, vidit suscipit at mei.</li>
-    <li>
-      Quem denique mea id. Usu ei regione indoctum dissentiunt, cu meliore fuisset mei, vel quod
-      voluptua ne.
-    </li>
-    <li>Ex dicat impedit mel, at eum oratio possit voluptatum.</li>
-    <li>Impetus fuisset ullamcorper pri cu, his posse iisque ad, aliquam honestatis usu id.</li>
-  </ul>
+  <h2 id='awards'>Awards</h2>
+  <Timeline
+    events={[
+      {
+        date: '2023-10',
+        content:
+          '<strong>Third-class Scholarship of Peking University(TOP 15%)</strong>'
+      },
+      {
+        date: '2023-10',
+        content:
+          '<strong>Peking University Outstanding Academic Award</strong>'
+      },
+      {
+        date: '2023-04',
+        content:
+          '<strong>QuanZheng Research Funding, Peking University</strong>'
+      },
+      {
+        date: '2022-10',
+        content: '<strong>Second-class Scholarship of Peking University(TOP 5%)</strong>'
+      },
+      {
+        date: '2022-10',
+        content: '<strong>Peking University Merit Student</strong>'
+      },
+      {
+        date: '2021-10',
+        content: '<strong>Zhang Wenjin Scholarship(TOP 10%)</strong>'
+      },
+      {
+        date: '2021-10',
+        content: '<strong>Peking University Merit Student</strong>'
+      },
 
+    ]}
+  />
+  
   {/* tools */}
-  <h2 id='tools'>Tools</h2>
-  <p>Current support tools as follow:</p>
+  <h2 id='tools'>Skills & Tools</h2>
   <ToolSection
-    class='mb-5'
-    title='Design'
-    tools={[
-      {
-        name: 'Photoshop',
-        description: 'Picture Editing',
-        href: 'https://www.adobe.com/products/photoshop',
-        icon: import('@/assets/tools/photoshop.svg?raw')
-      },
-      {
-        name: 'Illustrator',
-        description: 'Vector Drawing',
-        href: 'https://www.adobe.com/products/illustrator',
-        icon: import('@/assets/tools/illustrator.svg?raw')
-      },
-      {
-        name: 'After Effects',
-        description: 'Motion Graphics',
-        href: 'https://www.adobe.com/products/aftereffects',
-        icon: import('@/assets/tools/aftereffects.svg?raw')
-      },
-      {
-        name: 'Premiere Pro',
-        description: 'Video Editing',
-        href: 'https://www.adobe.com/products/premiere',
-        icon: import('@/assets/tools/premiere.svg?raw')
-      }
-    ]}
-  />
-  <ToolSection
-    class='mb-5'
-    title='Productivity'
-    tools={[
-      {
-        name: 'Chrome',
-        description: 'Broswer',
-        href: 'https://www.google.com/chrome/',
-        icon: import('@/assets/tools/chrome.svg?raw')
-      },
-      {
-        name: 'Firefox',
-        description: 'Broswer',
-        href: 'https://www.mozilla.org/en-US/firefox',
-        icon: import('@/assets/tools/firefox.svg?raw')
-      },
-      {
-        name: 'Notion',
-        description: 'Note Taking',
-        href: 'https://www.notion.so/',
-        icon: import('@/assets/tools/notion.svg?raw')
-      },
-      {
-        name: 'Typora',
-        description: 'Markdown Editor',
-        href: 'https://typora.io/',
-        icon: import('@/assets/tools/typora.svg?raw')
-      }
-    ]}
-  />
+  class='mb-5'
+  title='Languages'
+  tools={[
+    {
+      name: 'python',
+      description: '',
+      href: 'https://www.python.org/',
+      icon: import('@/assets/tools/language/python.svg?raw')
+    },
+    {
+      name: 'R',
+      description: '',
+      href: 'https://www.r-project.org/',
+      icon: import('@/assets/tools/language/R.svg?raw')
+    },
+    {
+      name: 'MATLAB',
+      description: '',
+      href: 'https://www.mathworks.com/products/matlab.html',
+      icon: import('@/assets/tools/language/Matlab.svg?raw')
+    },
+    {
+      name: 'Julia',
+      description: '',
+      href: 'https://julialang.org/',
+      icon: import('@/assets/tools/language/Julia.svg?raw')
+    }
+  ]}
+/>
+
   <ToolSection
     class='mb-5'
     title='Development'
     tools={[
       {
         name: 'VS Code',
-        description: 'IDE',
+        description: 'IDE for coding',
         href: 'https://code.visualstudio.com/',
         icon: import('@/assets/tools/vscode.svg?raw')
       },
       {
-        name: 'Neovim',
-        description: 'IDE',
-        href: 'https://neovim.io/',
-        icon: import('@/assets/tools/neovim.svg?raw')
+        name: 'Cursor',
+        description: 'IDE for coding',
+        href: 'https://www.cursor.com/en',
+        icon: import('@/assets/tools/cursor.svg?raw')
       },
       {
-        name: 'Sublime Text',
-        description: 'IDE',
-        href: 'https://www.sublimetext.com/',
-        icon: import('@/assets/tools/sublime.svg?raw')
+        name: 'Git',
+        description: 'Codes Version Control',
+        href: 'https://git-scm.com/',
+        icon: import('@/assets/tools/Git.svg?raw')
+      },
+      {
+        name: 'Github',
+        description: 'Codes Repository',
+        href: 'https://github.com',
+        icon: import('@/assets/tools/github.svg?raw')
+      },
+      {
+        name: 'Overleaf',
+        description: 'LaTeX Editor',
+        href: 'https://www.overleaf.com/',
+        icon: import('@/assets/tools/overleaf.svg?raw')
+      },
+      {
+        name: 'Notion',
+        description: 'Notes Taking',
+        href: 'https://www.notion.so/',
+        icon: import('@/assets/tools/notion.svg?raw')
+      },
+      {
+        name: 'PyTorch',
+        description: 'Deep Learning Framework',
+        href: 'https://pytorch.org/',
+        icon: import('@/assets/tools/pytorch.svg?raw')
       }
     ]}
   />
@@ -128,83 +156,52 @@ const headings = [
     title='Environment'
     tools={[
       {
-        name: 'Arch Linux',
-        description: 'Linux Distribution',
-        href: 'https://archlinux.org/',
-        icon: import('@/assets/tools/archlinux.svg?raw')
-      },
-      {
         name: 'Ubuntu 24.04 LTS',
         description: 'Linux Distribution',
         href: 'https://ubuntu.com/',
         icon: import('@/assets/tools/ubuntu.svg?raw')
       },
       {
-        name: 'MacOS Sonoma',
-        description: 'MacBook Air',
+        name: 'MacOS Sonoma', 
+        description: 'MacBook Air M3',
         href: 'https://www.apple.com/macos/',
         icon: import('@/assets/tools/apple.svg?raw')
       },
       {
         name: 'Windows 11',
-        description: 'Rog Strix G15',
+        description: 'Dell Inspiron 7590', 
         href: 'https://news.microsoft.com/windows11-general-availability/',
         icon: import('@/assets/tools/windows11.svg?raw')
       }
     ]}
+    class='flex flex-row gap-4'
   />
-
-  {/* social-networks */}
-  <h2 id='social-networks'>Social Networks</h2>
-  <p>
-    Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
-    dissentiunt, cu meliore fuisset mei, vel quod voluptua ne.
-  </p>
-  <Substats
-    stats={[
-      {
-        platform: 'GitHub',
-        icon: 'github',
-        link: 'https://github.com/cworld1',
-        text: 'followers',
-        api: 'github/cworld1'
-      },
-      {
-        platform: 'Telegram',
-        icon: 'telegram',
-        color: '#2ca5e0',
-        link: 'https://t.me/cworld0_cn',
-        text: 'subscribers',
-        api: 'telegram/cworld0_cn'
-      },
-      {
-        platform: 'Weibo',
-        icon: 'weibo',
-        color: '#e71f19',
-        link: 'https://weibo.com/cworld0',
-        text: 'followers',
-        api: 'weibo/5501674056'
-      },
-      {
-        platform: 'Steam',
-        icon: 'steam',
-        color: '#50769d',
-        link: 'https://steamcommunity.com/id/cworld',
-        text: 'games',
-        api: 'steamgames/76561199021278120'
-      }
-    ]}
-  />
-
+    
+    {/* general-talk */}
+    <h2 id='hobbies'>Hobbies</h2>
+    <ul>
+      <li><strong>Dogs🐶</strong>: I really enjoy playing with dogs and touching their soft fur. When I was a kid, 
+        my neighbor had a Border Collie named "Mickey" and we spent much time in my childhood. </li>
+      </li>
+      <li>
+        <strong>Music🎵</strong>: I like listening to music, especially the songs of the 80s and 90s. My favorite band is <strong><a href="https://en.wikipedia.org/wiki/Beyond_(band)" target="_blank">Beyond</a></strong>.
+      </li>
+      <li>
+        <strong>Basketball🏀</strong>: When I was an ungraduate student, I was the starting point guard of the basketball team of the School of Psychological and Cognitive Sciences, Peking University. After I graduated, 
+        I still play basketball with my friends and I became the head coach of the basketball team. I organize training and design the team's strategy and tactics. Everything is brand new, but I'm really insersed in it.
+      </li>
+    </ul>
+  
+  
   {/* gossips */}
-  <h2 id='gossips'>Gossips</h2>
+  <!-- <h2 id='gossips'>Gossips</h2>
   <Collapse title='Lorem ipsum'>
     Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
     dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel, at eum oratio
     possit voluptatum.
-  </Collapse>
+  </Collapse> -->
 
-  {/* about-blog */}
+  <!-- {/* about-blog */}
   <h2 id='about-blog'>About Blog</h2>
   <p>Website history:</p>
   <Timeline
@@ -242,9 +239,9 @@ const headings = [
     </li>
     <li>
       CI/CD: <a href='https://vercel.com/workflow' target='_blank'>Vercel Workflow</a>
-    </li>
+    </li> -->
     <!-- <li>Resources speedup: <a href='https://cdn.cbd.int/' target='_blank'>CBD CDN</a></li> -->
-    <li>Comment system: <a href='https://waline.js.org' target='_blank'>Waline</a></li>
+    <!-- <li>Comment system: <a href='https://waline.js.org' target='_blank'>Waline</a></li>
     <li>
       Visits: <a href='https://supabase.com/' target='_blank'>Supabase</a> +
       <a href='https://waline.js.org/' target='_blank'>Waline</a>
@@ -254,6 +251,6 @@ const headings = [
         >Substats</a
       >
     </li>
-  </ul>
-  <Comment slot='bottom' />
+  </ul> -->
+  <!-- <Comment slot='bottom' /> -->
 </PageLayout>

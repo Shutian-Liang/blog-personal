@@ -3,11 +3,11 @@ import type { CardListData, Config, IntegrationUserConfig, ThemeUserConfig } fro
 export const theme: ThemeUserConfig = {
   // === Basic configuration ===
   /** Title for your website. Will be used in metadata and as browser tab title. */
-  title: 'Shutian\'s site',
+  title: 'Shutian\'s Site',
   /** Will be used in index page & copyright declaration */
   author: 'Shutian Liang',
   /** Description metadata for your website. Can be used in page metadata. */
-  description: 'Ideas make sense, but engineering also matters.',
+  description: 'Stay hungry, stay foolish',
   /** The default favicon for your site which should be a path to an image in the `public/` directory. */
   favicon: '/favicon/favicon.ico',
   /** Specify the default language for this site. */
@@ -33,7 +33,7 @@ export const theme: ThemeUserConfig = {
   prerender: true,
   npmCDN: 'https://cdn.jsdelivr.net/npm',
 
-  // still in test
+  // Still in test
   head: [
     /* Telegram channel */
     // {
@@ -47,25 +47,37 @@ export const theme: ThemeUserConfig = {
   /** Configure the header of your site. */
   header: {
     menu: [
+      { title: 'About', link: '/about' },
       { title: 'Blog', link: '/blog' },
-      { title: 'Docs', link: '/docs' },
-      { title: 'Projects', link: '/projects' },
-      { title: 'Links', link: '/links' },
-      { title: 'About', link: '/about' }
+      { title: 'Projects', link: '/projects' }
     ]
   },
 
   /** Configure the footer of your site. */
   footer: {
-    // Registration information for ICP (optional)
-    registration: {
-      url: 'https://icp.gov.moe/?keyword=APTX4869',
-      text: 'Moe ICP APTX4869'
-    },
-    /** Enable displaying a “Astro & Pure theme powered” link in your site’s footer. */
-    credits: true,
+    links: [
+      // Registration link
+      {
+        title: 'Moe ICP APTX4869',
+        link: 'https://icp.gov.moe/?keyword=APTX4869',
+        style: 'text-sm' // Uno/TW CSS class
+      },
+      {
+        title: 'Travelling',
+        link: 'https://www.travellings.cn/go.html',
+        style: 'text-sm'
+      },
+      // Privacy Policy link
+      // {
+      //   title: 'Site Policy',
+      //   link: '/terms/list',
+      //   pos: 2 // position set to 2 will be appended to copyright line
+      // }
+    ],
+    /** Enable displaying a "Astro & Pure theme powered" link in your site's footer. */
+    // credits: true,
     /** Optional details about the social media accounts for this site. */
-    social: { github: 'https://github.com/cworld1/astro-theme-pure' }
+    // social: { github: 'https://github.com/cworld1/astro-theme-pure' }
   },
 
   content: {
@@ -79,7 +91,7 @@ export const theme: ThemeUserConfig = {
 }
 
 export const integ: IntegrationUserConfig = {
-  // Links menagement
+  // Links management
   // See: https://astro-pure.js.org/docs/integrations/links
   links: {
     // Friend logbook
@@ -108,16 +120,15 @@ export const integ: IntegrationUserConfig = {
     server: 'https://api.quotable.io/quotes/random?maxLength=60',
     target: `(data) => data[0].content || 'Error'`
   },
-  // Tailwindcss typography
-  // See: https://astro-pure.js.org/docs/integrations/others#tailwindcsstypography
+  // UnoCSS typography
+  // See: https://unocss.dev/presets/typography
   typography: {
-    // https://github.com/tailwindlabs/tailwindcss-typography
     class: 'prose text-base text-muted-foreground'
   },
   // A lightbox library that can add zoom effect
   // See: https://astro-pure.js.org/docs/integrations/others#medium-zoom
   mediumZoom: {
-    enable: true, // disable it will not load the whole library
+    enable: false, // disable it will not load the whole library
     selector: '.prose .zoomable',
     options: {
       className: 'zoomable'
