@@ -4,6 +4,8 @@ import { Button, Collapse, Spoiler, Timeline } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
 import Substats from '@/components/about/Substats.astro'
 import ToolSection from '@/components/about/ToolSection.astro'
+import { Image } from 'astro:assets';
+import aboutImage from '@/assets/about.png';
 
 const headings = [
   { depth: 2, slug: 'about', text: 'Shutian Liang' },
@@ -14,7 +16,7 @@ const headings = [
 ---
 <PageLayout title='About' {headings} info='/about'>
   <div class="flex gap-4 items-center">
-    <img src="@/assets/about.png" alt="Shutian Liang" class="w-80 rounded-lg shadow-md" />
+    <Image src={aboutImage} alt="Shutian Liang" width={320} height={320} />
     <div>
       <p>Hi there! 👋I'm Shutian Liang, a graduate from <a href="https://www.psy.pku.edu.cn/english/" target="_blank">SPCS</a>, <a href="https://www.pku.edu.cn/" target="_blank">Peking University</a> 
       with a bachelor degree in Psychology at 2024.</p>
