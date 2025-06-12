@@ -36,12 +36,12 @@ function highlightAuthor(authors: string) {
                 rel="noopener noreferrer"
                 class="block no-underline"
               >
-                <div class="publication-item group/card relative rounded-2xl border bg-background transition-colors ease-in-out px-0 py-5 hover:bg-muted">
+                <div class="publication-item group/card relative rounded-2xl border bg-background transition-colors ease-in-out px-6 py-5 hover:bg-muted">
                   <div class="relative z-8">
-                    <h3 class="text-xl font-bold italic">
+                    <h3 class="text-[1.15rem] font-bold italic">
                       {paper.title}
                     </h3>
-                    <p class="text-base mt-2" set:html={highlightAuthor(paper.authors)} />
+                    <p class="text-base mt-1" set:html={highlightAuthor(paper.authors)} />
                     <div class="flex items-center gap-2 mt-1">
                       <p class="text-sm">{paper.year}</p>
                       {paper.tags.map(tag => (
@@ -54,12 +54,12 @@ function highlightAuthor(authors: string) {
                 </div>
               </a>
             ) : (
-              <div class="publication-item group/card relative rounded-2xl border bg-background transition-colors ease-in-out px-0 py-5">
+              <div class="publication-item group/card relative rounded-2xl border bg-background transition-colors ease-in-out px-6 py-5">
                 <div class="relative z-10">
-                  <h3 class="text-xl font-bold italic">
+                  <h3 class="text-[1.15rem] font-bold italic">
                     {paper.title}
                   </h3>
-                  <p class="text-base mt-2" set:html={highlightAuthor(paper.authors)} />
+                  <p class="text-base mt-1" set:html={highlightAuthor(paper.authors)} />
                   <div class="flex items-center gap-2 mt-1">
                     <p class="text-sm">{paper.year}</p>
                     {paper.tags.map(tag => (
