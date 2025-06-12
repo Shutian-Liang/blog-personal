@@ -1,0 +1,101 @@
+---
+import type { Paper } from '../../data/publications'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { journalPapers, conferencePapers } from '../../data/publications'
+import { Icon } from 'astro-pure/user'
+
+const meta = {
+  title: 'Publications',
+  description: 'My academic publications'
+}
+
+// 合并所有论文并按年份排序
+const allPapers: Paper[] = [...journalPapers, ...conferencePapers].sort((a, b) => 
+  parseInt(b.year) - parseInt(a.year)
+)
+
+// 收集所有唯一的标签
+const uniqueTags = [...new Set(allPapers.flatMap(paper => paper.tags))].sort()
+
+function highlightAuthor(authors: string) {
+  return authors.replace(/Shutian Liang/g, '<strong>Shutian Liang</strong>')
+}
+---
+
+<BaseLayout {meta}>
+  <main>
+    <h1 class="text-3xl font-medium mb-2">Publications</h1>
+    <div class="grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-10 max-w-[90%]">
+      <section class="max-w-[800px]">
+        <div class="space-y-3">
+          {allPapers.map((paper) => {
+            return paper.doi ? (
+              <a 
+                href={paper.doi} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="block no-underline"
+              >
+                <div class="publication-item group/card relative rounded-2xl border bg-background transition-colors ease-in-out px-0 py-5 hover:bg-muted">
+                  <div class="relative z-8">
+                    <h3 class="text-xl font-bold italic">
+                      {paper.title}
+                    </h3>
+                    <p class="text-base mt-2" set:html={highlightAuthor(paper.authors)} />
+                    <div class="flex items-center gap-2 mt-1">
+                      <p class="text-sm">{paper.year}</p>
+                      {paper.tags.map(tag => (
+                        <span class="text-xs px-2 py-0.5 rounded-full bg-muted-foreground/10">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </a>
+            ) : (
+              <div class="publication-item group/card relative rounded-2xl border bg-background transition-colors ease-in-out px-0 py-5">
+                <div class="relative z-10">
+                  <h3 class="text-xl font-bold italic">
+                    {paper.title}
+                  </h3>
+                  <p class="text-base mt-2" set:html={highlightAuthor(paper.authors)} />
+                  <div class="flex items-center gap-2 mt-1">
+                    <p class="text-sm">{paper.year}</p>
+                    {paper.tags.map(tag => (
+                      <span class="text-xs px-2 py-0.5 rounded-full bg-muted-foreground/10">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </section>
+
+      <aside class="animate" id="sidebar">
+        <h2 class="mb-4 flex items-center text-lg font-semibold">
+          <Icon name="tag-2" class="me-2" />
+          Tags
+        </h2>
+        <ul class="flex flex-wrap gap-2">
+          {uniqueTags.map((tag) => (
+            <li>
+              <span class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors hover:bg-muted">
+                {tag}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <style>
+    .publication-item {
+      cursor: pointer;
+    }
+  </style>
+</BaseLayout> 
